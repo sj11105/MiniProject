@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes Detection</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f0f2f5;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+      }
+      .container {
+          background-color: white;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          max-width: 600px;
+          box-sizing: border-box;
+      }
+      h1 {
+          text-align: center;
+          color: #333;
+      }
+      form {
+          display: flex;
+          flex-direction: column;
+      }
+      .form-group {
+          margin-bottom: 15px;
+      }
+      label {
+          margin-bottom: 5px;
+          color: #333;
+      }
+      input[type="number"] {
+          padding: 10px;
+          margin: 5px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+          width: 100%;
+      }
+      button {
+          padding: 10px;
+          margin-top: 10px;
+          border: none;
+          border-radius: 5px;
+          background-color: #4CAF50;
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+      }
+      button:hover {
+          background-color: #45a049;
+      }
+      .result {
+          text-align: center;
+          margin: 20px 0;
+      }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/">Home</a>
+    <h1>Perkinson Detection</h1>
+    <form action="/predict_perkenson" method="post">
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Age" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <input type="number" id="gender" name="gender" placeholder="Gender" required>
+        </div>
+        <div class="form-group">
+            <label for="ethnicity">Ethnicity:</label>
+            <input type="number" id="ethnicity" name="ethnicity" placeholder="Ethnicity" required>
+        </div>
+        <div class="form-group">
+            <label for="education">Education:</label>
+            <input type="number" id="education" name="education" placeholder="Education" required>
+        </div>
+        <div class="form-group">
+            <label for="bmi">BMI:</label>
+            <input type="number" id="bmi" name="bmi" placeholder="BMI" required>
+        </div>
+        <div class="form-group">
+            <label for="smoking">Smoking:</label>
+            <input type="number" id="smoking" name="smoking" placeholder="Smoking" required>
+        </div>
+        <div class="form-group">
+            <label for="alcohol">Alcohol:</label>
+            <input type="number" id="alcohol" name="alcoholconsumption" placeholder="Alcohol Consumption" required>
+        </div>
+        <div class="form-group">
+            <label for="dailyactivity">Physical Activity:</label>
+            <input type="number" id="dailyactivity" name="dailyactivity" placeholder="Daily Activity" required>
+        </div>
+        <div class="form-group">
+            <label for="dietquality">Diet Quality:</label>
+            <input type="number" id="dietquality" name="dietquality" placeholder="Diet Quality" required>
+        </div>
+        <div class="form-group">
+            <label for="sleepquality">Sleep Quality:</label>
+            <input type="number" id="sleepquality" name="sleepquality" placeholder="Sleep Quality" required>
+        </div>
+        <div class="form-group">
+            <label for="familyrelations">Family History:</label>
+            <input type="number" id="familyrelations" name="familyrelations" placeholder="Family Relations" required>
+        </div>
+        <div class="form-group">
+            <label for="traumatic">Traumatic:</label>
+            <input type="number" id="traumatic" name="traumatic" placeholder="Traumatic" required>
+        </div>
+        <div class="form-group">
+            <label for="hypertension">Hypertension:</label>
+            <input type="number" id="hypertension" name="hypertension" placeholder="Hypertension" required>
+        </div>
+        <div class="form-group">
+            <label for="diabetes">Diabetes:</label>
+            <input type="number" id="diabetes" name="diabetes" placeholder="Diabetes" required>
+        </div>
+        <div class="form-group">
+            <label for="depression">Depression:</label>
+            <input type="number" id="depression" name="depression" placeholder="Depression" required>
+        </div>
+        <div class="form-group">
+            <label for="stroke">Stroke:</label>
+            <input type="number" id="stroke" name="stroke" placeholder="Stroke" required>
+        </div>
+        <div class="form-group">
+            <label for="systolicbp">Systolic BP:</label>
+            <input type="number" id="systolicbp" name="systolic" placeholder="Systolic BP" required>
+        </div>
+        <div class="form-group">
+            <label for="diastolicbp">Diastolic BP:</label>
+            <input type="number" id="diastolicbp" name="diastolicbp" placeholder="Diastolic BP" required>
+        </div>
+        <div class="form-group">
+            <label for="cholestroltotal">Cholesterol Total:</label>
+            <input type="number" id="cholestroltotal" name="cholestroltotal" placeholder="Cholesterol Total" required>
+        </div>
+        <div class="form-group">
+            <label for="cholestrolldl">Cholesterol LDL:</label>
+            <input type="number" id="cholestrolldl" name="cholestrolldl" placeholder="Cholesterol LDL" required>
+        </div>
+        <div class="form-group">
+            <label for="cholestrolhdl">Cholesterol HDL:</label>
+            <input type="number" id="cholestrolhdl" name="cholestrolhdl" placeholder="Cholesterol HDL" required>
+        </div>
+        <div class="form-group">
+            <label for="cholestroltrigylcerides">Cholesterol Triglycerides:</label>
+            <input type="number" id="cholestroltrigylcerides" name="cholestroltrigly" placeholder="Cholesterol Triglycerides" required>
+        </div>
+        <div class="form-group">
+            <label for="updrs">UPDRS:</label>
+            <input type="number" id="updrs" name="updrs" placeholder="UPDRS" required>
+        </div>
+        <div class="form-group">
+            <label for="Moca">MoCA:</label>
+            <input type="number" id="Moca" name="Moca" placeholder="MoCA" required>
+        </div>
+        <div class="form-group">
+            <label for="Functional">Functional:</label>
+            <input type="number" id="Functional" name="Functional" placeholder="Functional" required>
+        </div>
+        <div class="form-group">
+            <label for="tremor">Tremor:</label>
+            <input type="number" id="tremor" name="tremor" placeholder="Tremor" required>
+        </div>
+        <div class="form-group">
+            <label for="rigidity">Rigidity:</label>
+            <input type="number" id="rigidity" name="rigidity" placeholder="Rigidity" required>
+        </div>
+        <div class="form-group">
+            <label for="Bradykinesia">Bradykinesia:</label>
+            <input type="number" id="Bradykinesia" name="Bradykinesia" placeholder="Bradykinesia" required>
+        </div>
+        <div class="form-group">
+            <label for="Posturalinstability">Postural Instability:</label>
+            <input type="number" id="Posturalinstability" name="Posturalinstability" placeholder="Postural Instability" required>
+        </div>
+        <div class="form-group">
+            <label for="SpeechProblems">Speech Problems:</label>
+            <input type="number" id="SpeechProblems" name="SpeechProblems" placeholder="Speech Problems" required>
+        </div>
+        <div class="form-group">
+            <label for="SleepProblems">Sleep Problems:</label>
+            <input type="number" id="SleepProblems" name="SleepDisorder" placeholder="Sleep Problems" required>
+        </div>
+        <div class="form-group">
+            <label for="constipation">Constipation:</label>
+            <input type="number" id="constipation" name="constipation" placeholder="Constipation" required>
+        </div>
+        <button type="submit" value="predict">Predict</button>
+    </form>
+    <div class="result">
+        <h2>Prediction Result:</h2>
+        <p>{{ result }}</p>
+    </div>
+  </div>
+</body>
+</html>

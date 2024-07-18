@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease and Diabetes Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group input:focus {
+            border-color: #777;
+            outline: none;
+        }
+        button {
+            padding: 15px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            color: #4CAF50;
+            text-align: center;
+            display: block;
+            margin: 10px 0;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .result {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+  
+    <div class="container">
+        <a href="/">Home</a>
+        <h1>Heart Disease Detection</h1>
+        <form action="/predict_heart" method="post">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Age" required>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <input type="number" id="sex" name="sex" placeholder="Sex" required>
+            </div>
+            <div class="form-group">
+                <label for="cp">Chest Pain Type:</label>
+                <input type="number" id="cp" name="cp" placeholder="Chest Pain Type" required>
+            </div>
+            <div class="form-group">
+                <label for="trestbps">Resting Blood Pressure:</label>
+                <input type="number" id="trestbps" name="trestbps" placeholder="Resting Blood Pressure" required>
+            </div>
+            <div class="form-group">
+                <label for="chol">Cholesterol:</label>
+                <input type="number" id="chol" name="chol" placeholder="Cholesterol" required>
+            </div>
+            <div class="form-group">
+                <label for="fbs">Fasting Blood Sugar:</label>
+                <input type="number" id="fbs" name="fbs" placeholder="Fasting Blood Sugar" required>
+            </div>
+            <div class="form-group">
+                <label for="restecg">Resting ECG:</label>
+                <input type="number" id="restecg" name="restecg" placeholder="Resting ECG" required>
+            </div>
+            <div class="form-group">
+                <label for="thalach">Max Heart Rate Achieved:</label>
+                <input type="number" id="thalach" name="thalach" placeholder="Max Heart Rate Achieved" required>
+            </div>
+            <div class="form-group">
+                <label for="exang">Exercise Induced Angina:</label>
+                <input type="number" id="exang" name="exang" placeholder="Exercise Induced Angina" required>
+            </div>
+            <div class="form-group">
+                <label for="oldpeak">ST Depression:</label>
+                <input type="number" id="oldpeak" name="oldpeak" placeholder="ST Depression" required>
+            </div>
+            <div class="form-group">
+                <label for="slope">Slope of Peak Exercise ST Segment:</label>
+                <input type="number" id="slope" name="slope" placeholder="Slope of Peak Exercise ST Segment" required>
+            </div>
+            <div class="form-group">
+                <label for="ca">Number of Major Vessels Colored by Fluoroscopy:</label>
+                <input type="number" id="ca" name="ca" placeholder="Number of Major Vessels Colored by Fluoroscopy" required>
+            </div>
+            <div class="form-group">
+                <label for="thal">Thalassemia:</label>
+                <input type="number" id="thal" name="thal" placeholder="Thalassemia" required>
+            </div>
+            <button type="submit">Predict Heart Disease</button>
+        </form>
+       
+        <div class="result">
+            <h2>Prediction Result:</h2>
+            <p>{{ result }}</p>
+        </div>
+    </div>
+</body>
+</html>

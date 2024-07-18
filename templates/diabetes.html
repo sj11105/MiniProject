@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group input:focus {
+            border-color: #777;
+            outline: none;
+        }
+        button {
+            padding: 15px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            color: #4CAF50;
+            text-align: center;
+            display: block;
+            margin: 10px 0;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .result {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/">Home</a>
+        <h1>Diabetes Detection</h1>
+        <form action="/predict_diabetes" method="post">
+            <div class="form-group">
+                <label for="pregnancy">Pregnancy:</label>
+                <input type="number" id="pregnancy" name="pregnancy" placeholder="Pregnancy" required>
+            </div>
+            <div class="form-group">
+                <label for="glucose">Glucose:</label>
+                <input type="number" id="glucose" name="glucose" placeholder="Glucose" required>
+            </div>
+            <div class="form-group">
+                <label for="bloodpressure">Blood Pressure:</label>
+                <input type="number" id="bloodpressure" name="bloodpressure" placeholder="Blood Pressure" required>
+            </div>
+            <div class="form-group">
+                <label for="skinthickness">Skin Thickness:</label>
+                <input type="number" id="skinthickness" name="skinthickness" placeholder="Skin Thickness" required>
+            </div>
+            <div class="form-group">
+                <label for="insulin">Insulin:</label>
+                <input type="number" id="insulin" name="insulin" placeholder="Insulin" required>
+            </div>
+            <div class="form-group">
+                <label for="bmi">BMI:</label>
+                <input type="number" id="bmi" name="bmi" placeholder="BMI" required>
+            </div>
+            <div class="form-group">
+                <label for="diabetes">Diabetes Pedigree Function:</label>
+                <input type="number" id="diabetes" name="diabetes" placeholder="Diabetes Pedigree Function" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Age" required>
+            </div>
+            <button type="submit">Predict Diabetes</button>
+        </form>
+        <div class="result">
+            <h2>Prediction Result:</h2>
+            <p>{{ result }}</p>
+        </div>
+    </div>
+</body>
+</html>
