@@ -1,129 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SYMPTOSENSE - HealthDetect</title>
     <style>
-        .first{
-            display: flex;
-           
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f0f8ff;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      header {
+        background-color: #3498db;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-bottom: 40px;
+      }
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+      .intro {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 60px;
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .intro img {
+        max-width: 50%;
+        border-radius: 10px;
+      }
+      .intro-text {
+        flex: 1;
+      }
+      .prediction-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+      .prediction-card {
+        flex: 1 1 calc(50% - 20px);
+        min-width: 300px;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .prediction-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .prediction-content {
+        padding: 20px;
+      }
+      .prediction-content h2 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+      }
+      .btn {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        margin-top: 15px;
+      }
+      .btn:hover {
+        background-color: #2980b9;
+      }
+      @media (max-width: 768px) {
+        .intro {
+          flex-direction: column;
         }
-        .para1{
-            font-size: large;
-            font-weight: 500;
-            margin-top: 250px;
-            font-size: x-large;
-       
+        .intro img {
+          max-width: 100%;
         }
-        .second{
-            margin-top: 600px;
- position: absolute;
- display: flex;
+        .prediction-card {
+          flex: 1 1 100%;
         }
-        .img1{
-            width: 460px;
-            margin-left: 400px;
-            border-radius: 40px;
-
-        }
-        .btn1{
-          margin-left: -300px;
-          width: 140px;
-          height: 50px;
-          border-radius: 70px;
-          position: absolute;
-          margin-top: 280px;
-        }
-        .btn2{
-            margin-left: 470px;
-          width: 140px;
-          height: 50px;
-          border-radius: 70px;
-          position: absolute;
-          margin-top: 300px;
-        }
-        .para2{
-            margin-left: 60px;
-            width: 500px;
-            margin-top: 30px;
-            font-size: x-large;
-       
-        }
-        .third{
-            display: flex;
-            margin-left: -440px;
-            margin-top: 350px;
-            position: absolute;
-        }
-        .img2{
-            width: 460px;
-            margin-left: 450px;
-            border-radius: 40px;
-            margin-top: 70px;
-        }
-        .para3{
-            margin-left: 450px;
-            width: 500px;
-            margin-top: 120px;
-            font-size: x-large;
-        }
-        .four{
-            display: flex;
-            margin-left: 440px;
-            margin-top: 350px;
-            position: absolute;
-        }
-        .para4{
-            width: 500px;
-            margin-top: 130px;
-            margin-left: 100px;
-            font-size: x-large;
-            
-        }
-        .img3{
-            width: 460px;
-            margin-left: 300px;
-            border-radius: 40px;
-            position: absolute;
-            margin-top: 100px;
-        }
-       
+      }
     </style>
-</head>
-<body>
-    <h1>SYMPTOSENSE</h1>
-    <div class="first">
-    <div><img src="https://i.pinimg.com/originals/ff/b5/ab/ffb5ab50774ba5ab060e0674ff4689e2.gif" alt="" srcset=""></div>
-    <div class="para1">Welcome to HealthDetect, where we harness the power of advanced machine learning to revolutionize healthcare diagnostics. Our mission is to provide accurate, accessible, and timely health assessments, empowering individuals to take control of their well-being.
-
-    </div>
-    <div class="second">
-        
-        <div class="para2">Our heart disease prediction model utilizes sophisticated machine learning algorithms to analyze various health metrics and provide an early assessment of the risk of heart disease. By evaluating key indicators such as cholesterol levels, blood pressure, and lifestyle factors, our model can deliver accurate predictions to help individuals and healthcare providers take proactive measures.</div>
-        <div><img class="img1" src="https://i.pinimg.com/originals/84/3b/a1/843ba1636cdd6f675848e53f6efc11ab.gif" alt="" srcset="">
-            <a href="/heart"><button class="btn1">Predict</button></a>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>SYMPTOSENSE</h1>
+        <p>Advanced Health Prediction Using Machine Learning</p>
+      </div>
+    </header>
+    <div class="container">
+      <section class="intro">
+        <img
+          src="https://i.pinimg.com/originals/ff/b5/ab/ffb5ab50774ba5ab060e0674ff4689e2.gif"
+          alt="HealthDetect Introduction"
+        />
+        <div class="intro-text">
+          <p>
+            Welcome to HealthDetect, where we harness the power of advanced
+            machine learning to revolutionize healthcare diagnostics. Our
+            mission is to provide accurate, accessible, and timely health
+            assessments, empowering individuals to take control of their
+            well-being.
+          </p>
         </div>
-        <div class="third">
-            <div><img class="img2" src="https://i.pinimg.com/originals/b2/9d/f7/b29df7e04778a5d285892457383ab47e.gif" alt="" srcset="">
-                <a href="/diabetes"><button class="btn1">Predict</button></a>
-            </div>
-            <div class="para3">Our diabetes prediction model employs advanced machine learning techniques to analyze health data and assess the risk of diabetes. By examining factors such as blood glucose levels, body mass index (BMI), age, and family history, our model provides accurate predictions that can help individuals identify their risk early and take preventive actions.</div>
-           
-            <div class="four">
-        
-                <div class="para4">Our breast cancer prediction model uses cutting-edge machine learning algorithms to analyze medical data and predict the likelihood of breast cancer. By examining factors such as genetic markers, mammogram results, age, and family history, our model provides early detection and risk assessment, enabling timely interventions and better outcomes.</div>
-                <div><img class="img3" src="https://i.pinimg.com/originals/fb/65/a1/fb65a11edce90518d7dfc1f706061ee4.gif" alt="" srcset="">
-                    <a href="/breast"><button class="btn2">Predict</button></a>
-                </div>
-                <div class="third">
-                    <div><img class="img2" src="https://i.pinimg.com/originals/ce/dc/72/cedc722a7c07c0b079808e1468e68d6c.gif" alt="" srcset="">
-                        <a href="/perkinson"><button class="btn1">Predict</button></a>
-                    </div>
-                    <div class="para3">Our Parkinson's disease prediction model leverages sophisticated machine learning algorithms to analyze medical and lifestyle data, providing an early assessment of the risk of Parkinson's disease. By evaluating key indicators such as genetic factors, environmental exposures, and clinical symptoms, our model delivers accurate predictions to support early diagnosis and intervention.</div>
-                   
-      
+      </section>
+      <section class="prediction-section">
+        <div class="prediction-card">
+          <img
+            src="https://i.pinimg.com/originals/84/3b/a1/843ba1636cdd6f675848e53f6efc11ab.gif"
+            alt="Heart Disease Prediction"
+          />
+          <div class="prediction-content">
+            <h2>Heart Disease Prediction</h2>
+            <p>
+              Our heart disease prediction model utilizes sophisticated machine
+              learning algorithms to analyze various health metrics and provide
+              an early assessment of the risk of heart disease. By evaluating
+              key indicators such as cholesterol levels, blood pressure, and
+              lifestyle factors, our model can deliver accurate predictions to
+              help individuals and healthcare providers take proactive measures.
+            </p>
+            <a href="/heart" class="btn">Predict</a>
+          </div>
+        </div>
+        <div class="prediction-card">
+          <img
+            src="https://i.pinimg.com/originals/b2/9d/f7/b29df7e04778a5d285892457383ab47e.gif"
+            alt="Diabetes Prediction"
+          />
+          <div class="prediction-content">
+            <h2>Diabetes Prediction</h2>
+            <p>
+              Our diabetes prediction model employs advanced machine learning
+              techniques to analyze health data and assess the risk of diabetes.
+              By examining factors such as blood glucose levels, body mass index
+              (BMI), age, and family history, our model provides accurate
+              predictions that can help individuals identify their risk early
+              and take preventive actions.
+            </p>
+            <a href="/diabetes" class="btn">Predict</a>
+          </div>
+        </div>
+      </section>
     </div>
-
-</body>
+  </body>
 </html>
